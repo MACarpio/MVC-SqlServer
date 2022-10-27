@@ -1,0 +1,53 @@
+@model IEnumerable<mvc.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Users</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear Usuario</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th class="text-center"> Interactuar </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td class="text-center">
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn-success btn">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn-secondary btn">Detalle</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn-danger btn">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

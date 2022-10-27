@@ -1,0 +1,28 @@
+@model mvc.Models.User
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h4 class="text-center">Seguro de eliminar este usuario?</h4>
+<div>
+    <h4 class="text-center">User</h4>
+    <hr />
+    <dl class="row justify-content-center">
+        <dd class = "col-sm-6 text-center">
+            <b>@Html.DisplayNameFor(model => model.Nombre) </b>: @Html.DisplayFor(model => model.Nombre) <br>
+            <b>@Html.DisplayNameFor(model => model.Fecha) </b>: @Html.DisplayFor(model => model.Fecha)<br>
+            <b>@Html.DisplayNameFor(model => model.Email) </b>: @Html.DisplayFor(model => model.Email)<br>
+            <b>@Html.DisplayNameFor(model => model.Password) </b>: @Html.DisplayFor(model => model.Password)<br>
+        </dd>
+
+    </dl>
+    
+</div>
+<div class="justify-content-center" style="display: flex;gap: 15px;">
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-dark">Listado</a>
+    </form>
+</div>

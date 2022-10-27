@@ -1,0 +1,25 @@
+@model mvc.Models.User
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-center">Detalle</h1>
+<div>
+    <h4 class="text-center">User</h4>
+    <hr />
+    <dl class="row justify-content-center">
+        <dd class = "col-sm-6 text-center">
+            <b>@Html.DisplayNameFor(model => model.Nombre) </b>: @Html.DisplayFor(model => model.Nombre) <br>
+            <b>@Html.DisplayNameFor(model => model.Fecha) </b>: @Html.DisplayFor(model => model.Fecha)<br>
+            <b>@Html.DisplayNameFor(model => model.Email) </b>: @Html.DisplayFor(model => model.Email)<br>
+            <b>@Html.DisplayNameFor(model => model.Password) </b>: @Html.DisplayFor(model => model.Password)<br>
+        </dd>
+
+    </dl>
+</div>
+<div class="justify-content-center" style="display: flex;gap: 15px;">
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-success">Editar</a> 
+    <a asp-action="Delete" asp-route-id="@Model?.Id" class="btn btn-danger">Eliminar</a>
+    <a asp-action="Index" class="btn btn-dark">Listado</a>
+</div>
